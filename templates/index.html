@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQLite Database Display</title>
+</head>
+<body>
+    <h1>Data from SQLite Database</h1>
+    {% for table, info in data.items() %}
+    <h2>{{ table }}</h2>
+    <table border="1">
+        <tr>
+            {% for column in info['columns'] %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in info['data'] %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
+</body>
+</html>
